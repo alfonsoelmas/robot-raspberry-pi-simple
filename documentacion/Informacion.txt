@@ -1,0 +1,4 @@
+La documentación del proyecto se encuentra tanto en esta carpeta proporcionando un documento general sobre la estructura del proyecto. (Codigo y HW)
+Como en los .H para entender el funcionamiento de cada parte del proyecto.
+
+
