@@ -33,8 +33,8 @@ Este código está bajo licencia Apache
 
 */
 
-#define PIN_SERVO_DER 11 			//PIN DEL SERVO DERECHO A LA RPI3 MODEL B
-#define PIN_SERVO_IZQ 12 			//PIN DEL SERVO IZQUIERDO A LA RPI3 MODEL B
+#define PIN_SERVO_DER 1 			//PIN DEL SERVO DERECHO A LA RPI3 MODEL B (patilla 12)   GPIO 18
+#define PIN_SERVO_IZQ 0 			//PIN DEL SERVO IZQUIERDO A LA RPI3 MODEL B (patilla 11) GPIO 17
 
 
 #define MAX_VELOCIDAD 100 			//Equivalente a 50 RPM de nuestro servo parallax		
