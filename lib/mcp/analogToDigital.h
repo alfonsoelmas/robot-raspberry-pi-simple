@@ -55,7 +55,7 @@ static int myFd;
     OUTPUT:
         int return: valor leído del canal "canal" o -1 en caso de error
 */
-int     analogReadMCP(int canal);
+int analogReadMCP(int canal);
 /*
   Escribe un valor analogico al canal "canal". El valor debe comprender entre 0 y 1024
   Si la operación sale correctamente devuelve 0 y -1 si sale incorrectamente
@@ -65,12 +65,12 @@ int     analogReadMCP(int canal);
     OUTPUT:
         return int: 0 si todo ok. -1 si error de operacion
 */
-int    analogWriteMCP(int canal, int valor);
+int analogWriteMCP(int canal, int valor);
 /*
   Carga las configuraciones para dejarla lista para su uso.
   Devuelve -1 si da error.  
 */
-int    mcpSetup();
+int mcpSetup();
 /*
     Cierra la conexion ISP con la MCP.
 */
