@@ -1,3 +1,8 @@
+/**
+Autor: Alfonso Soria Muñoz
+Este código está bajo licencia Apache
+**/
+
 
 void moverServo(int pin, Sentido s)
 {

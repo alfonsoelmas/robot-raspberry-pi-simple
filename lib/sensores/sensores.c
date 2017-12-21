@@ -1,3 +1,8 @@
+/**
+Autor: Alfonso Soria Muñoz
+Este código está bajo licencia Apache
+**/
+
 
 /* 
   ==================================
@@ -32,8 +37,30 @@ bool hayObstaculo()
 float distanciaObstaculo()
 {
 
-    //TODO
+    /*
+      La función que cumple nuestro sensor
+      tiene la forma (y = 26,902x^-1,274  con un R² = 0,9933)
+      dentro de los valores comprendidos entre y >= 5 && y <=80.
+      Para y<5 habría que aplicar otra fórmula que no tendremos en cuenta actualmente.
+      Para las X < 0.4, asignamos la distancia = 0;
+    */
 
+    for(i=0; i<10; i++) dato[i] = analogReadMCP(SENSOR_PROX_1); //Leemos 10 valores del sensor -Hacemos 10 lecturas porque alguna vez obtenemos una desviación de +40-
+    
+    //Calculamos la media
+    int sum=0;
+    for(i=0; i<10; i++) suma += dato[i];
+    int media = sum/10;
+
+    float voltaje = dataToVolt(media); //Calculamos el voltaje correspondiente.
+    if(voltaje < 0.43)
+      return 0;
+    if(voltaje > 3.29)
+      return -1;
+    //Calculamos la distancia con nuestra formula de voltaje a distancia
+    float distancia = 26.902*(voltaje^(-1,274));
+
+    return distancia;
 }
 
 //=======================================

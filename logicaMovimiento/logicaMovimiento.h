@@ -1,3 +1,8 @@
+/**
+Autor: Alfonso Soria Muñoz
+Este código está bajo licencia Apache
+**/
+
 #include "../lib/servos/servos.h"
 #include "../lib/servos/sensores.h"
 
