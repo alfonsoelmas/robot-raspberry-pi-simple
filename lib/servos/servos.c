@@ -40,7 +40,7 @@ void moverServo(int pin, Sentido s)
 	} 
 	else
 	{
-		//Sentido = quieto
+		//Sentido = quieto TODO -> MEJOR PARAR PWM PORQUE EN 15 SE QUEDA UN POCO TOCAO Y SE MILIMUEVE XD
 		softPwmWrite(pin, 15); //Depurando, el valor 15 implica "quieto" == 1.5ms de valor alto por cada ciclo de reloj de 20 ms.
 	}
 }
@@ -49,6 +49,12 @@ void moverServo(int pin, Sentido s)
 
 void moverServoIzquierdo (Sentido s)
 {
+	//Invertimos sentido porque funciona a la inversa que el servo derecho:
+
+	if(s == Sentido.DETRAS)
+		s == Sentido.DELANTE;
+	else if( s == Sentido.DELANTE)
+		s == Sentido.DETRAS;
 	moverServo(PIN_SERVO_IZQUIERDA, s);
 }
 
