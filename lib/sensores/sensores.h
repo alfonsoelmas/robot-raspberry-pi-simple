@@ -6,6 +6,7 @@ Este código está bajo licencia Apache
 
 #ifndef sensores
 #define sensores
+#include <math.h>
 #include "../mcp/analogToDigital.h"
 
 /*
@@ -41,9 +42,9 @@ bool hayObstaculo();
   	ya que este sensor serán los ojos del robot para no chocarse.
 
     OUTPUT:
-       	float return: true si detecta objeto, false en otro caso.
+       	double return: true si detecta objeto, false en otro caso.
 */
-float distanciaObstaculo();
+double distanciaObstaculo();
 
 
 

@@ -3,6 +3,7 @@ Autor: Alfonso Soria Muñoz
 Este código está bajo licencia Apache
 **/
 
+#include "servos.h"
 
 void moverServo(int pin, Sentido s)
 {

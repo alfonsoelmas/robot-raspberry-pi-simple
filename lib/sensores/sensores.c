@@ -9,6 +9,8 @@ Este código está bajo licencia Apache
   Funciones del sensor de proximidad
   ==================================
 */
+#include "sensores.h"
+#include <math.h>
 
 bool hayObstaculo()
 {
@@ -34,7 +36,7 @@ bool hayObstaculo()
 }
 
 
-float distanciaObstaculo()
+double distanciaObstaculo()
 {
 
     /*
@@ -43,6 +45,9 @@ float distanciaObstaculo()
       dentro de los valores comprendidos entre y >= 5 && y <=80.
       Para y<5 habría que aplicar otra fórmula que no tendremos en cuenta actualmente.
       Para las X < 0.4, asignamos la distancia = 0;
+
+      Esta formula se adapta mejor para distancias más lejanas.
+      Otra formula que puede ser valida es: 26.707x^ -1.267
     */
 
     for(i=0; i<10; i++) dato[i] = analogReadMCP(SENSOR_PROX_1); //Leemos 10 valores del sensor -Hacemos 10 lecturas porque alguna vez obtenemos una desviación de +40-
@@ -52,13 +57,13 @@ float distanciaObstaculo()
     for(i=0; i<10; i++) suma += dato[i];
     int media = sum/10;
 
-    float voltaje = dataToVolt(media); //Calculamos el voltaje correspondiente.
+    double voltaje = dataToVolt(media); //Calculamos el voltaje correspondiente.
     if(voltaje < 0.43)
       return 0;
     if(voltaje > 3.29)
       return -1;
     //Calculamos la distancia con nuestra formula de voltaje a distancia
-    float distancia = 26.902*(voltaje^(-1,274));
+    double distancia = 26.902*(pow(voltaje,(-1.274));
 
     return distancia;
 }
